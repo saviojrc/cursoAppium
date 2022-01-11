@@ -1,4 +1,4 @@
-package br.ce.wcaquino.test;
+package br.ce.wcaquino.appium.test;
 
 import java.net.MalformedURLException;
 import java.net.URL;

@@ -33,7 +33,6 @@ public class Config {
 
 			return desiredCapabilities;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new IllegalArgumentException(e.getMessage());
 		}
@@ -46,7 +45,6 @@ public class Config {
 
 			return remoteUrl;
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new IllegalArgumentException(e.getMessage());
 		}
