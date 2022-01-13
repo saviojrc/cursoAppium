@@ -26,6 +26,8 @@ public class BasePage {
 	}
 	
 	
+	
+	
 	public List<MobileElement> obterListaDeElementos(By by ){
 		List<MobileElement> objMobileList = DriverFactory.getDriver().findElements(by);
 		

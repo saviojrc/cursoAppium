@@ -31,7 +31,7 @@ public class DriverFactory {
 			remoteUrl = Config.getUrl();
 			desiredCapabilities=Config.getDesiredCapabilities();
 			driver = new AndroidDriver<MobileElement>(remoteUrl, desiredCapabilities);
-			Waint.implicitWaint();
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();

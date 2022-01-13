@@ -12,7 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 import br.ce.wcaquino.test.util.Utilitarios;
 
-public class BaseTest {
+public class BaseTest extends Waint {
 	
 	
 	@Rule
@@ -24,9 +24,11 @@ public class BaseTest {
 		DriverFactory.killDriver();
 	}
 	
+	
+	
 	@After
 	public void tearDowm() {
-		Waint.implicitWaint();
+		
 		gerarCapturaDeTela();
 		DriverFactory.getDriver().resetApp();
 	}

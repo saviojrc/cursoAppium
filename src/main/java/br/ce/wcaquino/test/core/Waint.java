@@ -2,21 +2,47 @@ package br.ce.wcaquino.test.core;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import br.ce.wcaquino.test.util.Utilitarios;
 
 public class Waint {
+	
+	private Integer timeOut = Integer.valueOf(Utilitarios.obterPropriedade("config.timeOut"));
+	
+	
+	
+	public void waintPresenceOfElementLocated(By by) {
+		try {
 
-	private static Integer timeOut;
+			
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), timeOut);
+			wait.until(ExpectedConditions.presenceOfElementLocated(by));
 
-
-	public static Integer getTimeOut() {
-		timeOut = Integer.valueOf(Utilitarios.obterPropriedade("config.timeOut"));
-		return timeOut;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new IllegalArgumentException(e.getMessage());
+		}
+	}
+	
+	public void implicitWaint(int timeOut) {
+		DriverFactory.getDriver().manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 	}
 
-	public static void implicitWaint() {
+	
+	public void  waintElementToBeClickable(By by) {
+		try {
 
-		DriverFactory.getDriver().manage().timeouts().implicitlyWait(getTimeOut(), TimeUnit.SECONDS);
+			
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), timeOut);
+			wait.until(ExpectedConditions.elementToBeClickable(by));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new IllegalArgumentException(e.getMessage());
+		}
 	}
 
 }
